@@ -24,5 +24,8 @@ zinit light zsh-users/zsh-completions
 
 source <(fzf --zsh)
 
+# Aliases
+alias vim="nvim"
+
 # Fastfetch
 fastfetch
