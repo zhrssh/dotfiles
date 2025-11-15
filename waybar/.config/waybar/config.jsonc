@@ -1,7 +1,6 @@
 {
 	// General settings
 	"layer": "top",
-	"height": 32,
 	"position": "top",
 	"margin-bottom": 0,
 	"margin-top": 4,
@@ -70,14 +69,14 @@
 
 	"network": {
 		"interval": 2,
-		"format-wifi": "    {bandwidthUpBytes} /   {bandwidthDownBytes} (IP {ipaddr}/{cidr})",
+		"format-wifi": "    {essid}",
 		"format-ethernet": "",
-		"format-linked": " {ipaddr}",
+		"format-linked": "{ipaddr}",
 		"format-disconnected": " Disconnected",
 		"format-disabled": "",
 		"tooltip": false,
 		"min-length": 6,
-		"format-alt": "{essid}"
+		"format-alt": "  {bandwidthUpBytes} /   {bandwidthDownBytes} ({ipaddr})"
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",

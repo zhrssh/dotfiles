@@ -27,5 +27,8 @@ source <(fzf --zsh)
 # Aliases
 alias vim="nvim"
 
+# Sources
+source /usr/share/nvm/init-nvm.sh
+
 # Fastfetch
 fastfetch
