@@ -7,12 +7,51 @@
 }
 
 #custom-arch,
-#hardware,
-#taskbar,
+#clock,
 #idle_inhibitor,
 #network,
 #wireplumber {
-    margin-right: 12px;
+    margin-right: 2px;
+}
+
+#window,
+#hardware,
+#wireplumber,
+#network,
+#clock {
+    background-color: rgba(52, 58, 64, 0.8);
+    border-radius: 16px;
+    border: 2px solid rgba(33, 37, 41, 1);
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#hardware label {
+    color: rgba(255, 209, 102, 1);
+}
+
+#idle_inhibitor {
+    color: rgba(206, 212, 218, 1);
+}
+
+#network {
+    color: rgba(6, 214, 160, 1);
+}
+
+#network.disconnected {
+    color: rgba(239, 71, 111, 1);
+}
+
+#network.disabled {
+    color: rgba(108, 117, 125, 1);
+}
+
+#hardware *:not(:first-child) label {
+    margin-left: 12px;
+}
+
+#idle_inhibitor {
+    padding-right: 12px;
 }
 
 #workspaces label {
@@ -40,6 +79,13 @@
     }
 }
 
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: none;
+    background: rgba(7, 59, 76, 0.9);
+    transition: none;
+}
+
 #workspaces button.active,
 #workspaces button.focused {
     animation-name: workspacesAnim;
@@ -51,13 +97,10 @@
 }
 
 #custom-arch {
-    font-size: 20px;
+    font-size: 22px;
     color: rgba(6, 214, 160, 0.9);
     margin-left: 16px;
-}
-
-#hardware * {
-    margin-left: 8px;
+    margin-right: 8px;
 }
 
 #window label {
@@ -78,7 +121,9 @@
 
 #custom-power {
     color: rgba(239, 71, 111, 0.9);
-    font-size: 24px;
+    background-color: rgba(239, 71, 111, 0.1);
+    border: 2px solid rgba(239, 71, 111, 0.9);
+    font-size: 20px;
     font-weight: bolder;
     border-radius: 16px;
     margin-right: 12px;
