@@ -1,0 +1,31 @@
+/* Watermelon Sorbet - https://coolors.co/ef476f-ffd166-06d6a0-118ab2-073b4c */
+
+- CSV
+
+ef476f,ffd166,06d6a0,118ab2,073b4c
+
+- With #
+
+#ef476f, #ffd166, #06d6a0, #118ab2, #073b4c
+
+- Array
+
+["ef476f","ffd166","06d6a0","118ab2","073b4c"]
+
+- Object
+
+{"Bubblegum Pink":"ef476f","Golden Pollen":"ffd166","Emerald":"06d6a0","Ocean Blue":"118ab2","Dark Teal":"073b4c"}
+
+- Extended Array
+
+[{"name":"Bubblegum Pink","hex":"ef476f","rgb":[239,71,111],"cmyk":[0,70,54,6],"hsb":[346,70,94],"hsl":[346,84,61],"lab":[56,66,16]},{"name":"Golden Pollen","hex":"ffd166","rgb":[255,209,102],"cmyk":[0,18,60,0],"hsb":[42,60,100],"hsl":[42,100,70],"lab":[86,4,58]},{"name":"Emerald","hex":"06d6a0","rgb":[6,214,160],"cmyk":[97,0,25,16],"hsb":[164,97,84],"hsl":[164,95,43],"lab":[76,-56,15]},{"name":"Ocean Blue","hex":"118ab2","rgb":[17,138,178],"cmyk":[90,22,0,30],"hsb":[195,90,70],"hsl":[195,83,38],"lab":[54,-16,-30]},{"name":"Dark Teal","hex":"073b4c","rgb":[7,59,76],"cmyk":[91,22,0,70],"hsb":[195,91,30],"hsl":[195,83,16],"lab":[23,-9,-15]}]
+
+- XML
+
+<palette>
+  <color name="Bubblegum Pink" hex="ef476f" r="239" g="71" b="111" />
+  <color name="Golden Pollen" hex="ffd166" r="255" g="209" b="102" />
+  <color name="Emerald" hex="06d6a0" r="6" g="214" b="160" />
+  <color name="Ocean Blue" hex="118ab2" r="17" g="138" b="178" />
+  <color name="Dark Teal" hex="073b4c" r="7" g="59" b="76" />
+</palette>

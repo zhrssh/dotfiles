@@ -1,57 +1,93 @@
 * {
-	font-family: JetBrainsMono;
-	font-size: 12px;
-	min-height: 0;
-	color: white;
+    font-family: Josefin Sans;
+    font-size: 14px;
+    min-height: 16px;
+    color: whitesmoke;
+    background-color: transparent;
 }
 
-window#waybar {
-	background-color: transparent;
+#custom-arch,
+#hardware,
+#taskbar,
+#idle_inhibitor,
+#network,
+#wireplumber {
+    margin-right: 12px;
 }
 
-#workspaces {
-	margin-top: 4px;
-	margin-bottom: 0px;
-	margin-right: 8px;
-	margin-left: 24px;
+#workspaces label {
+    margin-top: 4px;
+    margin-bottom: 0px;
 }
 
 #workspaces button {
-	border-radius: 16px;
-	margin-right: 12px;
-	padding: 4px 12px;
-	font-weight: bolder;
-	background-color: #181818;
+    border-radius: 16px;
+    margin-right: 12px;
+    padding: 4px 12px;
+    font-weight: normal;
+    background-color: rgba(7, 59, 76, 0.9);
 }
 
-#workspaces button.active, #workspaces button.focused {
-	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;    
-	background: #7C9D96;
+@keyframes workspacesAnim {
+    from {
+        background-color: rgba(7, 59, 76, 0.9);
+        padding: 4px 12px;
+    }
+
+    to {
+        background-color: rgba(6, 214, 160, 0.9);
+        padding: 4px 28px;
+    }
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    animation-name: workspacesAnim;
+    animation-duration: 0.25s;
+    background: rgba(6, 214, 160, 0.9);
+    padding: 4px 28px;
+    color: rgba(7, 59, 76, 1.);
+    font-weight: bolder;
 }
 
 #custom-arch {
-	font-size: 16px;
-	margin-left: 12px;
-	margin-right: 12px;
+    font-size: 20px;
+    color: rgba(6, 214, 160, 0.9);
+    margin-left: 16px;
 }
 
-#tray,
-#mpd,
-#custom-weather,
-#cpu, 
-#temperature, 
-#memory,
-#sway-mode,
-#backlight, 
-#pulseaudio, 
-#custom-vpn,
-#disk,
-#custom-recorder,
-#custom-audiorec,
-#battery, 
-#clock, 
-#idle_inhibitor,
-#network {
-	padding: 0 12px;
+#hardware * {
+    margin-left: 8px;
 }
 
+#window label {
+    margin-top: 4px;
+}
+
+@keyframes powerAnim {
+    from {
+        color: rgba(239, 71, 111, 0.9);
+        background-color: transparent;
+    }
+
+    to {
+        color: whitesmoke;
+        background-color: rgba(239, 71, 111, 0.9);
+    }
+}
+
+#custom-power {
+    color: rgba(239, 71, 111, 0.9);
+    font-size: 24px;
+    font-weight: bolder;
+    border-radius: 16px;
+    margin-right: 12px;
+    padding: 0px 10px;
+}
+
+#custom-power:hover {
+    animation-name: powerAnim;
+    animation-duration: 0.25s;
+    color: whitesmoke;
+    background-color: rgba(239, 71, 111, 0.9);
+}
