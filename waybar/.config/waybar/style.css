@@ -26,6 +26,11 @@
     padding-right: 12px;
 }
 
+window#waybar.empty #window {
+    background: none;
+    border: none;
+}
+
 #hardware label {
     color: rgba(255, 209, 102, 1);
 }
