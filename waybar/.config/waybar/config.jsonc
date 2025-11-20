@@ -4,7 +4,7 @@
     "position": "top",
     "margin-bottom": 0,
     "margin-top": 4,
-    "spacing": 8,
+    "spacing": 2,
 
     // Left modules
     "modules-left": [
@@ -24,7 +24,7 @@
         "wireplumber",
         "network",
         "group/hardware",
-        "custom/power"
+        "group/grp-power"
     ],
 
     // Hyprland utils
@@ -84,7 +84,7 @@
         "format-wifi": "    {essid}",
         "format-ethernet": "",
         "format-linked": "{ipaddr}/{cidr}",
-        "format-disconnected": " Disconnected",
+        "format-disconnected": "   Disconnected",
         "format-disabled": "",
         "tooltip": false,
         "min-length": 6,
@@ -129,8 +129,43 @@
         "tooltip-format": "btw"
     },
 
+    // Power
+    "group/grp-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/power",
+            "custom/lock",
+            "custom/sleep",
+            "custom/reboot"
+        ]
+    },
+
     "custom/power": {
         "format": "⏻",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "poweroff"
+    }, 
+
+    "custom/reboot": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+
+    "custom/sleep": {
+        "format": "󰤄",
+        "tooltip": false,
+        "on-click": "systemctl sleep"
+    },
+
+    "custom/lock": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "loginctl lock-session"
     }
 }

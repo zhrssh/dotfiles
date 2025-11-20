@@ -116,6 +116,18 @@ window#waybar.empty #window {
    WORKSPACES
    ============================================================ */
 
+/* Workspace animation */
+@keyframes workspacesAnim {
+    from {
+        background-color: @green-accent-dark;
+        padding: 4px 12px;
+    }
+    to {
+        background-color: @green-accent-bg;
+        padding: 4px 28px;
+    }
+}
+
 #workspaces label {
     margin-top: 4px;
     margin-bottom: 0;
@@ -124,14 +136,13 @@ window#waybar.empty #window {
 #workspaces button {
     border-radius: 16px;
     margin-right: 12px;
-    padding: 4px 8px;
+    padding: 4px 12px;
     font-weight: normal;
     background-color: @green-accent-dark;
-    transition: padding 0.2s, background-color 0.2s;
 }
 
 #workspaces button:hover {
-    box-shadow: none;
+    box-shadow: inherit;
     text-shadow: none;
     background: @green-accent-dark;
     transition: none;
@@ -139,7 +150,9 @@ window#waybar.empty #window {
 
 #workspaces button.active,
 #workspaces button.focused {
-    background-color: @green-accent-bg;
+    animation-name: workspacesAnim;
+    animation-duration: 0.25s;
+    background: @green-accent-bg;
     padding: 4px 28px;
     color: @green-accent-dark;
     font-weight: bolder;
@@ -162,6 +175,18 @@ window#waybar.empty #window {
    POWER BUTTON + POWER GROUP
    ============================================================ */
 
+/* Power animation */
+@keyframes powerAnim {
+    from {
+        color: @red-accent-bg;
+        background-color: transparent;
+    }
+    to {
+        color: @fg-default;
+        background-color: @red-accent-bg;
+    }
+}
+
 #custom-power {
     color: @red-accent-bg;
     background-color: @red-accent-soft;
@@ -171,10 +196,11 @@ window#waybar.empty #window {
     margin-right: 12px;
     padding: 0 10px;
     border-radius: 16px;
-    transition: border-radius 0.25s, color 0.25s, background-color 0.25s;
+    transition: border-radius 0.25s;
 }
 
 #grp-power:hover > :last-child :not(.not-power) {
+    animation: powerAnim 0.25s;
     color: @fg-default;
     background-color: @red-accent-bg;
     border-radius: 0 16px 16px 0;
