@@ -10,7 +10,8 @@
     "modules-left": [
         "custom/arch",
         "clock",
-        "hyprland/window"
+        "hyprland/window",
+        "tray"
     ],
 
     // Middle modules
@@ -119,6 +120,12 @@
             "default": ["", "", ""]
         },
         "on-click": "pwvucontrol"
+    },
+
+    // System tray
+    "tray": { 
+        "icon-size": 21,
+        "spacing": 4
     },
 
     // Custom modules

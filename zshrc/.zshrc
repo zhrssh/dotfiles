@@ -34,6 +34,7 @@ source <(fzf --zsh)
 
 # Aliases
 alias vim="nvim"
+alias ssh="kitten ssh"
 
 # Sources
 source /usr/share/nvm/init-nvm.sh

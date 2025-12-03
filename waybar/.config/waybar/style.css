@@ -60,7 +60,8 @@
 #hardware,
 #wireplumber,
 #network,
-#clock {
+#clock,
+#tray {
     background-color: @block-bg;
     border-radius: 16px;
     border: 2px solid @block-border;
