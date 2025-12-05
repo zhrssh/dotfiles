@@ -10,8 +10,8 @@
     "modules-left": [
         "custom/arch",
         "clock",
-        "hyprland/window",
-        "tray"
+        "tray",
+        "hyprland/window"
     ],
 
     // Middle modules
