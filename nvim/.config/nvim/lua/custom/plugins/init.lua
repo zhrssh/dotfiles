@@ -57,11 +57,11 @@ return {
 				toggle_telescope(harpoon:list())
 			end, { desc = "Open harpoon window" })
 
-			vim.keymap.set("n", "<C-a>", function()
+			vim.keymap.set("n", "<leader>a", function()
 				harpoon:list():add()
 			end, { desc = "[A]dd to harpoon list" })
 
-			vim.keymap.set("n", "<C-d>", function()
+			vim.keymap.set("n", "<leader>d", function()
 				harpoon:list():remove()
 			end, { desc = "[D]elete from harpoon list" })
 
