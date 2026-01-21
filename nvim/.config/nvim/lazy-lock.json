@@ -26,5 +26,6 @@
   "telescope.nvim": { "branch": "master", "commit": "3d757e586ff0bfc85bdb7b46c9d3d932147a0cde" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
   "tokyonight.nvim": { "branch": "main", "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd" },
-  "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
+  "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
+  "zk-nvim": { "branch": "main", "commit": "a0b6c64c91cf3a4de1114f127ccd438b9c03e064" }
 }
