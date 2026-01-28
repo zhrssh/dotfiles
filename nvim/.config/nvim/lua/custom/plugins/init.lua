@@ -74,6 +74,8 @@ return {
 			end, { desc = "Move to prev harpooned file" })
 		end,
 	},
+
+	--- zettelkasten
 	{
 		"zk-org/zk-nvim",
 		config = function()
@@ -99,5 +101,12 @@ return {
 				},
 			})
 		end,
+	},
+
+	--- neogen
+	{
+		"danymat/neogen",
+		config = true,
+		version = "*",
 	},
 }

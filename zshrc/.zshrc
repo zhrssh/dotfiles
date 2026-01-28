@@ -37,8 +37,12 @@ source <(fzf --zsh)
 alias vim="nvim"
 alias ssh="kitten ssh"
 
-# Sources
-source /usr/share/nvm/init-nvm.sh
-
 # Fastfetch
 fastfetch
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2026-01-26 07:48:22
+export PATH="$PATH:/home/zheri-laptop/.local/bin"
