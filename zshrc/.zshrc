@@ -6,6 +6,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export GPG_TTY=$(tty)
+export ZK_NOTEBOOK_DIR="$HOME/Notes"
 
 # Installation of ZINIT plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
