@@ -109,4 +109,21 @@ return {
 		config = true,
 		version = "*",
 	},
+
+	--- markdown-nvim
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+
+		-- Completion for `blink.cmp`
+		dependencies = { "saghen/blink.cmp" },
+	},
+
+	--- comment.nvim
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+	},
 }
