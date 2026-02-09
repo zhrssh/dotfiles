@@ -6,6 +6,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export GPG_TTY=$(tty)
+export ZK_NOTEBOOK_DIR="$HOME/Notes"
 
 # Installation of ZINIT plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -21,6 +22,28 @@ SAVEHIST=1000
 # Bind keys to vim keys
 bindkey -v
 
+# Aliases
+alias vim="nvim"
+alias ssh="kitten ssh"
+
+# Sources
+source /usr/share/nvm/init-nvm.sh
+
+# Created by `pipx` on 2026-01-24 07:30:41
+export PATH="$PATH:/home/zheri/.local/bin"
+
+# The following lines were added by compinstall
+zstyle ':completion:*' completer _expand _complete _ignored
+zstyle :compinstall filename '/home/zheri/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Autoload zinit
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
 # Plugins
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
@@ -33,12 +56,4 @@ zinit light zsh-users/zsh-completions
 
 source <(fzf --zsh)
 
-# Aliases
-alias vim="nvim"
-alias ssh="kitten ssh"
-
-# Sources
-source /usr/share/nvm/init-nvm.sh
-
-# Fastfetch
 fastfetch
