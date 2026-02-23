@@ -680,6 +680,7 @@ require("lazy").setup({
 				"lua-language-server",
 				"markdownlint",
 				"prettierd",
+        "pyright",
 				"python-lsp-server",
 				"ruff",
 				"semgrep",
