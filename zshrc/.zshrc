@@ -6,7 +6,10 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export GPG_TTY=$(tty)
-export ZK_NOTEBOOK_DIR="$HOME/Notes"
+
+if command -v zk &>/dev/null; then
+    export ZK_NOTEBOOK_DIR="$HOME/Notes"
+fi
 
 # Installation of ZINIT plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -36,10 +39,10 @@ source <(fzf --zsh)
 
 # Aliases
 alias vim="nvim"
-alias ssh="kitten ssh"
 
-# Fastfetch
-fastfetch
+if command -v kitten /dev/null; then
+    alias ssh="kitten ssh"
+fi
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -54,3 +57,7 @@ export PATH="$PATH:$HOME/.local/bin"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# fastfetch
+fastfetch
+
