@@ -417,43 +417,7 @@ require("lazy").setup({
 				},
 			} },
 			"mason-org/mason-lspconfig.nvim",
-			{
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				opts = {
-					ensure_installed = {
-						"bandit",
-						"bash-language-server",
-						"dockerfile-language-server",
-						"eslint-lsp",
-						"gh-actions-language-server",
-						{
-							"gofumpt",
-							condition = function()
-								return vim.fn.executable("go") == 1
-							end,
-						},
-						{
-							"gopls",
-							condition = function()
-								return vim.fn.executable("go") == 1
-							end,
-						},
-						"kube-linter",
-						"lua-language-server",
-						"markdownlint",
-						"prettierd",
-						"python-lsp-server",
-						"ruff",
-						"semgrep",
-						"snyk",
-						"stylua",
-						"svelte-language-server",
-						"typescript-language-server",
-						"yaml-language-server",
-					},
-				},
-				auto_update = true,
-			},
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 			-- Useful status updates for LSP.
 			{ "j-hui/fidget.nvim", opts = {} },
@@ -695,9 +659,37 @@ require("lazy").setup({
 			-- for you, so that they are available from within Neovim.
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				"stylua", -- Used to format Lua code
+				"bandit",
+				"bash-language-server",
+				"dockerfile-language-server",
+				"eslint-lsp",
+				"gh-actions-language-server",
+				{
+					"gofumpt",
+					condition = function()
+						return vim.fn.executable("go") == 1
+					end,
+				},
+				{
+					"gopls",
+					condition = function()
+						return vim.fn.executable("go") == 1
+					end,
+				},
+				"kube-linter",
+				"lua-language-server",
+				"markdownlint",
+				"prettierd",
+				"python-lsp-server",
+				"ruff",
+				"semgrep",
+				"snyk",
+				"stylua",
+				"svelte-language-server",
+				"typescript-language-server",
+				"yaml-language-server",
 			})
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+			require("mason-tool-installer").setup({ ensure_installed = ensure_installed, auto_update = true })
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
