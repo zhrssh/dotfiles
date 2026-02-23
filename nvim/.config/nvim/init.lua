@@ -684,7 +684,6 @@ require("lazy").setup({
 				"pyright",
 				"python-lsp-server",
 				"ruff",
-				"semgrep",
 				"stylua",
 				"svelte-language-server",
 				"typescript-language-server",
