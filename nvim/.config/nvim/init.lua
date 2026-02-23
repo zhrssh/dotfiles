@@ -411,9 +411,49 @@ require("lazy").setup({
 			-- Automatically install LSPs and related tools to stdpath for Neovim
 			-- Mason must be loaded before its dependents so we need to set it up here.
 			-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-			{ "mason-org/mason.nvim", opts = {} },
+			{ "mason-org/mason.nvim", opts = {
+				pip = {
+					upgrade_pip = true,
+				},
+			} },
 			"mason-org/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			{
+				"WhoIsSethDaniel/mason-tool-installer.nvim",
+				opts = {
+					ensure_installed = {
+						"bandit",
+						"bash-language-server",
+						"dockerfile-language-server",
+						"eslint-lsp",
+						"gh-actions-language-server",
+						{
+							"gofumpt",
+							condition = function()
+								return vim.fn.executable("go") == 1
+							end,
+						},
+						{
+							"gopls",
+							condition = function()
+								return vim.fn.executable("go") == 1
+							end,
+						},
+						"kube-linter",
+						"lua-language-server",
+						"markdownlint",
+						"prettierd",
+						"python-lsp-server",
+						"ruff",
+						"semgrep",
+						"snyk",
+						"stylua",
+						"svelte-language-server",
+						"typescript-language-server",
+						"yaml-language-server",
+					},
+				},
+				auto_update = true,
+			},
 
 			-- Useful status updates for LSP.
 			{ "j-hui/fidget.nvim", opts = {} },
