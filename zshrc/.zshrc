@@ -39,6 +39,7 @@ source <(fzf --zsh)
 
 # Aliases
 alias vim="nvim"
+alias semgrep="semgrep --config=auto"
 
 if command -v kitten /dev/null; then
     alias ssh="kitten ssh"
