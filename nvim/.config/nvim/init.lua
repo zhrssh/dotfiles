@@ -661,9 +661,11 @@ require("lazy").setup({
 			vim.list_extend(ensure_installed, {
 				"bandit",
 				"bash-language-server",
+				"codeql",
 				"dockerfile-language-server",
 				"eslint-lsp",
 				"gh-actions-language-server",
+				"gitleaks",
 				{
 					"gofumpt",
 					condition = function()
@@ -704,6 +706,13 @@ require("lazy").setup({
 						require("lspconfig")[server_name].setup(server)
 					end,
 				},
+			})
+
+			-- Autocmd
+			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+				callback = function()
+					vim.fn.jobstart("gitleaks detect --source " .. vim.fn.getcwd())
+				end,
 			})
 		end,
 	},
