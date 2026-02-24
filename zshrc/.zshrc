@@ -60,3 +60,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # fastfetch
 fastfetch
 
+if [ -d /home/linuxbrew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+fi
