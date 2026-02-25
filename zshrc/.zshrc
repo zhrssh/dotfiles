@@ -1,3 +1,6 @@
+# fastfetch
+fastfetch
+
 # Environment variables
 export EDITOR=nvim
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -12,8 +15,8 @@ fi
 
 # Installation of ZINIT plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+[[ ! -d $ZINIT_HOME ]] && mkdir -p "$(dirname $ZINIT_HOME)"
+[[ ! -d $ZINIT_HOME/.git ]] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Lines configured by zsh-newuser-install
@@ -44,22 +47,36 @@ if command -v kitten &>/dev/null; then
 fi
 
 export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Created by `pipx` on 2026-01-26 07:48:22
-export PATH="$PATH:$HOME/.local/bin"
+[[ -s $NVM_DIR/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s $NVM_DIR/bash_completion ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+export PATH="$PATH:$HOME/.local/bin"
+[[ -s $HOME/.bun/_bun ]] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# fastfetch
-fastfetch
-
-if [ -d /home/linuxbrew ]; then
+if [[ -d /home/linuxbrew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi
+
+# chpwd hooks
+autoload -Uz add-zsh-hook
+python_hook() {
+    if [[ -d .venv ]]; then
+        source .venv/bin/activate
+    elif [[ -d venv ]]; then
+        source venv/bin/activate
+    elif [[ -n $VIRTUAL_ENV ]]; then
+        deactivate
+    fi
+}
+
+ls_hook() {
+    ls
+}
+
+add-zsh-hook chpwd python_hook
+add-zsh-hook chpwd ls_hook
