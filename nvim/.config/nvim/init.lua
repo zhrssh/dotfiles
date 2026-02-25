@@ -458,11 +458,6 @@ require("lazy").setup({
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
-					-- NOTE: Remember that Lua is a real programming language, and as such it is possible
-					-- to define small helper and utility functions so you don't have to repeat yourself.
-					--
-					-- In this case, we create a function that lets us more easily define mappings specific
-					-- for LSP related items. It sets the mode, buffer and description for us each time.
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
@@ -557,8 +552,6 @@ require("lazy").setup({
 
 					-- The following code creates a keymap to toggle inlay hints in your
 					-- code, if the language server you are using supports them
-					--
-					-- This may be unwanted, since they displace some of your code
 					if
 						client
 						and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
@@ -615,33 +608,25 @@ require("lazy").setup({
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				-- clangd = {},
-				-- gopls = {},
-				-- pyright = {},
-				-- rust_analyzer = {},
-				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-				--
-				-- Some languages (like typescript) have entire language plugins that can be useful:
-				--    https://github.com/pmizio/typescript-tools.nvim
-				--
-				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
-				--
-
+				bashls = {},
+				dockerls = {},
+				eslint = {},
+				gh_actions_ls = {},
+				gopls = {},
 				lua_ls = {
-					-- cmd = { ... },
-					-- filetypes = { ... },
-					-- capabilities = {},
 					settings = {
 						Lua = {
 							completion = {
 								callSnippet = "Replace",
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
+							diagnostics = { disable = { "missing-fields" } },
 						},
 					},
 				},
+				pyright = {},
+				svelte = {},
+				ts_ls = {},
+				yamlls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -660,34 +645,18 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"bandit",
-				"bash-language-server",
-				"dockerfile-language-server",
-				"eslint-lsp",
-				"gh-actions-language-server",
 				{
 					"gofumpt",
 					condition = function()
 						return vim.fn.executable("go") == 1
 					end,
 				},
-				{
-					"gopls",
-					condition = function()
-						return vim.fn.executable("go") == 1
-					end,
-				},
 				"hadolint",
-				"kube-linter",
-				"lua-language-server",
 				"markdownlint",
 				"prettierd",
-				"pyright",
-				"python-lsp-server",
 				"ruff",
 				"stylua",
-				"svelte-language-server",
-				"typescript-language-server",
-				"yaml-language-server",
+				"yamllint",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed, auto_update = true })
 
@@ -740,6 +709,23 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+
+				javascript = { "prettierd" },
+				typescript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				typescriptreact = { "prettierd" },
+
+				svelte = { "prettierd" },
+
+				json = { "prettierd" },
+				jsonc = { "prettierd" },
+				yaml = { "prettierd" },
+				markdown = { "prettierd" },
+
+				go = { "gofumpt" },
+
+				python = { "ruff" },
+
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -822,7 +808,7 @@ require("lazy").setup({
 			completion = {
 				-- By default, you may press `<c-space>` to show the documentation.
 				-- Optionally, set `auto_show = true` to show the documentation after a delay.
-				documentation = { auto_show = false, auto_show_delay_ms = 500 },
+				documentation = { auto_show = true, auto_show_delay_ms = 500 },
 			},
 
 			sources = {
@@ -848,10 +834,7 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- You can easily change to a different colorscheme.
-		-- Change the name of the colorscheme plugin below, and then
-		-- change the command in the config to whatever the name of that colorscheme is.
-		--
+	{
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 		"catppuccin/nvim",
 		name = "catppuccin",
