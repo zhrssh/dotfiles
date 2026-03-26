@@ -6,6 +6,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export GPG_TTY=$(tty)
 
+# Go installation
+export GOPATH="$HOME/go"
+
 # Node version manager
 export NVM_DIR="$HOME/.config/nvm"
 
