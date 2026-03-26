@@ -1,18 +1,6 @@
 # fastfetch
 fastfetch
 
-# Environment variables
-export EDITOR=nvim
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export GPG_TTY=$(tty)
-
-if command -v zk &>/dev/null; then
-    export ZK_NOTEBOOK_DIR="$HOME/Notes"
-fi
-
 # Installation of ZINIT plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [[ ! -d $ZINIT_HOME ]] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -41,23 +29,18 @@ source <(fzf --zsh)
 
 # Aliases
 alias vim="nvim"
-
-if command -v kitten &>/dev/null; then
+if [[ $TERM == "xterm-kitty" ]]; then
     alias ssh="kitten ssh"
 fi
 
-export NVM_DIR="$HOME/.config/nvm"
+# neovim config
 [[ -s $NVM_DIR/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [[ -s $NVM_DIR/bash_completion ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
-export PATH="$PATH:$HOME/.local/bin"
 [[ -s $HOME/.bun/_bun ]] && source "$HOME/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
+# homebrew
 if [[ -d /home/linuxbrew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi
