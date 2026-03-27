@@ -20,6 +20,9 @@ fi
 # Add local bin to PATH
 export PATH="$PATH:$HOME/.local/bin"
 
+# Cargo
+export PATH="$PATH:$HOME/.cargo/bin"
+
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
